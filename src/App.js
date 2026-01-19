@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React HELLO!!!
+          Ovo će biti HomePage.
         </a>
       </header>
     </div>
