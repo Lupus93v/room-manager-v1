@@ -56,24 +56,14 @@ export default function Header({ totalCapacity, totalUsage, freeCapacity }) {
 
 
     return (
-        <div style={{ backgroundColor: "lightblue", display: "flex",position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    zIndex: 1000 }}>
+        <div className="header">
             <h1>Room Manager</h1>
-            <div style={{
-                width: "30%",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-                marginLeft: "50px"
-            }}>
+            <div className="status-bar">
                 <h4>Capacity: {totalCapacity}</h4>
                 <h4>Used bads: {totalUsage}</h4>
                 <h4>Free bads: {freeCapacity}</h4>
             </div>
-            <button onClick={NewRoom} style={{ marginLeft: "650px" }}>NEW ROOM</button>
+            <button className="new-room-btn" onClick={NewRoom}>+</button>
             {showForm && (<div
                 style={{
                     border: "solid red 1px",

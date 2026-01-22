@@ -105,14 +105,14 @@ export default function HomePage() {
         <div className="rooms-list">
             {rooms.map((room) => (
                 <div
+                    className="room-div"
                     key={room.id}
-                    style={{ width: "20%", border: "1px solid red", margin: "10px", padding: "10px", cursor: "pointer" }}
                     onClick={() => {
                         setSelectedRoom(room);
                         setPopupVisible(true);
                     }}
                 >
-                    <img style={{ width: "90%" }} src={room.image} alt={room.name} />
+                    <img src={room.image} alt={room.name} />
                     <h3>{room.name}</h3>
                     <p>Kapacitet: {room.capacity}</p>
                     <p>Popunjenost: {room.usage}</p>
