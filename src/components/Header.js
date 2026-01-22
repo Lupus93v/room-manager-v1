@@ -1,0 +1,110 @@
+import React, { useState } from "react"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js"
+import {
+    getDatabase,
+    ref,
+    push
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js"
+
+const firebaseConfig = {
+    databaseURL: "https://room-manager-26-default-rtdb.europe-west1.firebasedatabase.app/"
+}
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app)
+const referenceInDB = ref(database, "rooms")
+
+export default function Header({ totalCapacity, totalUsage, freeCapacity }) {
+
+    const [showForm, setShowForm] = useState(false)
+    const [roomImage, setRoomImage] = useState(null)
+    const [roomName, setRoomName] = useState("");
+    const [roomCapacity, setRoomCapacity] = useState("")
+    const [roomUsage, setRoomUsage] = useState("")
+    const [roomNote, setRoomNote] = useState("")
+
+    const handleUsageChange = (e) => {
+        const value = Number(e.target.value);
+
+        if (value <= Number(roomCapacity)) {
+            setRoomUsage(value);
+        }
+    };
+
+    function NewRoom() {
+        setShowForm(prev => !prev)
+    }
+
+    function AddRoom() {
+        const roomObject = {
+            image: roomImage,
+            name: roomName,
+            capacity: roomCapacity,
+            usage: roomUsage,
+            note: roomNote
+        }
+
+        push(referenceInDB, roomObject)
+
+        setRoomName("");
+        setRoomImage("");
+        setRoomCapacity("");
+        setRoomUsage("");
+        setRoomNote("");
+        setShowForm(false);
+
+    }
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            setRoomImage(imageURL);
+        }
+    };
+
+
+    return (
+        <div style={{ backgroundColor: "lightblue", display: "flex",position: "fixed",   // ovo fiksira header
+    top: 0,
+    left: 0,
+    width: "100%",
+    zIndex: 1000,
+    backgroundColor: "lightblue" }}>
+            <h1>Room Manager</h1>
+            <div style={{
+                width: "30%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                marginLeft: "50px"
+            }}>
+                <h4>Capacity: {totalCapacity}</h4>
+                <h4>Used bads: {totalUsage}</h4>
+                <h4>Free bads: {freeCapacity}</h4>
+            </div>
+            <button onClick={NewRoom} style={{ marginLeft: "650px" }}>NEW ROOM</button>
+            {showForm && (<div
+                style={{
+                    border: "solid red 1px",
+                    width: "50%",
+                }}>
+                <input type="text" placeholder="Ime sobe" value={roomName} onChange={(e) => setRoomName(e.target.value)} />
+                <input type="file" placeholder="Slike sobe" accept="image/*" onChange={handleImageChange} />
+                {roomImage && (
+                    <img
+                        src={roomImage}
+                        alt="Preview"
+                        style={{ width: "100px", marginTop: "10px" }}
+                    />
+                )}
+
+                <input type="number" placeholder="Kapacitet sobe" value={roomCapacity} onChange={(e) => setRoomCapacity(e.target.value)} />
+                <input type="number" disabled={!roomCapacity} placeholder="Popunjenost sobe" min={0} max={roomCapacity} value={roomUsage} onChange={handleUsageChange} />
+                <input type="text" placeholder="Napomena" value={roomNote} onChange={(e) => setRoomNote(e.target.value)} />
+                <button id="add-room" onClick={AddRoom}>Add Room</button>
+            </div>)}
+        </div>
+    )
+}
