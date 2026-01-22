@@ -2,12 +2,6 @@ import React, { useState } from "react"
 import { ref, push } from "firebase/database"
 import { database } from "../firebase"
 
-const firebaseConfig = {
-    databaseURL: "https://room-manager-26-default-rtdb.europe-west1.firebasedatabase.app/"
-}
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app)
 const referenceInDB = ref(database, "rooms");
 
 export default function Header({ totalCapacity, totalUsage, freeCapacity }) {
