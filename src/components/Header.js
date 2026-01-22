@@ -56,12 +56,11 @@ export default function Header({ totalCapacity, totalUsage, freeCapacity }) {
 
 
     return (
-        <div style={{ backgroundColor: "lightblue", display: "flex",position: "fixed",   // ovo fiksira header
+        <div style={{ backgroundColor: "lightblue", display: "flex",position: "fixed",
     top: 0,
     left: 0,
     width: "100%",
-    zIndex: 1000,
-    backgroundColor: "lightblue" }}>
+    zIndex: 1000 }}>
             <h1>Room Manager</h1>
             <div style={{
                 width: "30%",

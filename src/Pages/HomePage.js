@@ -45,7 +45,7 @@ export default function HomePage() {
         });
 
         return () => unsubscribe();
-    }, []);
+    }, [setTotalCapacity, setTotalUsage]);
 
     const handleEditUsageChange = (e) => {
         const value = Number(e.target.value);
@@ -204,7 +204,7 @@ export default function HomePage() {
                                 }}
                             />
 
-                            {editImage && <img src={editImage} width="100" />}
+                            {editImage && <img src={editImage} width="100" alt={"soba"}/>}
 
                             <button onClick={saveEdit}>Save</button>
                             <button onClick={() => setEditRoom(null)}>Cancel</button>
