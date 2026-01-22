@@ -1,13 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import {
-    getDatabase,
-    ref,
-    remove,
-    update,
-    onValue
-} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
+import { ref, remove, update, onValue } from "firebase/database";
+import { database } from "../firebase";
+
 
 const firebaseConfig = {
     databaseURL: "https://room-manager-26-default-rtdb.europe-west1.firebasedatabase.app/"

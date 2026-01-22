@@ -1,10 +1,6 @@
 import React, { useState } from "react"
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js"
-import {
-    getDatabase,
-    ref,
-    push
-} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js"
+import { ref, push } from "firebase/database"
+import { database } from "../firebase"
 
 const firebaseConfig = {
     databaseURL: "https://room-manager-26-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -12,7 +8,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app)
-const referenceInDB = ref(database, "rooms")
+const referenceInDB = ref(database, "rooms");
 
 export default function Header({ totalCapacity, totalUsage, freeCapacity }) {
 
