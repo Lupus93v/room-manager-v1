@@ -125,14 +125,14 @@ textarea {
 
 .room-popup {
   width: 60%;
-  height: 55%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   position: fixed;
   justify-content: center;
   gap: 8px;
   align-items: center;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.7);
