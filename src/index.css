@@ -54,10 +54,10 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 65%;
-  height: 520px;
+  height: 480px;
   background: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  top: 5%;
+  top: 2%;
   border: 2px solid black;
 }
 
