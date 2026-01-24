@@ -85,6 +85,7 @@ export default function HomePage() {
 
     setEditRoom(null);
     setEditImage(null);
+    setPopupVisible(false)
 }
 
     function deleteRoom(roomId) {
@@ -113,43 +114,31 @@ export default function HomePage() {
                     }}
                 >
                     <img src={room.image} alt={room.name} />
-                    <h3>{room.name}</h3>
-                    <p>Kapacitet: {room.capacity}</p>
-                    <p>Popunjenost: {room.usage}</p>
-                    <p>Napomena: {room.note}</p>
+                    <h2>{room.name}</h2>
+                    <p>CAPACITY: {room.capacity}</p>
+                    <p>USED: {room.usage}</p>
+                    <p>NOTE: {room.note}</p>
                     {room.picture && <img src={room.picture} alt={room.name} style={{ width: "100px" }} />}
                 </div>
             ))}
 
             {popupVisible && selectedRoom && (
-                <div
-                    style={{
-                        position: "fixed",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        backgroundColor: "white",
-                        border: "1px solid black",
-                        padding: "20px",
-                        zIndex: 1000
-                    }}
-                >
-                    <button onClick={() => setEditRoom(selectedRoom)}>Uredi</button>
+                <div className="room-popup">
+                    <button onClick={() => setEditRoom(selectedRoom)}>CHANGE</button>
                     <button
                         style={{ backgroundColor: "red", color: "white" }}
                         onClick={() => deleteRoom(selectedRoom.id)}
                     >
-                        Delete
+                        DELETE
                     </button>
                     <button
-                        style={{ marginLeft: "10px" }}
                         onClick={() => {
                             setPopupVisible(false);
                             setSelectedRoom(null);
                             setEditRoom(null);
                         }}
                     >
-                        Close
+                        CLOSE
                     </button>
 
                     {editRoom && (
@@ -194,6 +183,7 @@ export default function HomePage() {
                             />
 
                             <input
+                            style={{color:"white"}}
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
@@ -206,8 +196,8 @@ export default function HomePage() {
 
                             {editImage && <img src={editImage} width="100" alt={"soba"}/>}
 
-                            <button onClick={saveEdit}>Save</button>
-                            <button onClick={() => setEditRoom(null)}>Cancel</button>
+                            <button onClick={saveEdit}>SAVE</button>
+                            <button onClick={() => setEditRoom(null)}>CANCEL</button>
                         </div>
                     )}
                 </div>
