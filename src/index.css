@@ -95,7 +95,7 @@ textarea {
 .room-div {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 85%;
   height: 350px;
   border: 2px solid black;
   cursor: pointer;
@@ -105,6 +105,7 @@ textarea {
   background-color: whitesmoke;
   border-radius: 2px;
   box-shadow: 0px 0px 20px black;
+  overflow: hidden;
 }
 
 .room-div img, h3, p {
@@ -114,7 +115,20 @@ textarea {
 .room-div p {
   font-size: 1.2rem;
   font-weight: bold;
-} 
+  width: 90%;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.room-div p.note {
+  flex-grow: 1;
+  overflow-y: auto;
+  word-wrap: break-word;
+  margin: 2px 0;
+  width: 90%;
+}
+
 
 .room-div img {
   width: 60%;
@@ -132,7 +146,7 @@ textarea {
   justify-content: center;
   gap: 8px;
   align-items: center;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.7);
@@ -180,4 +194,25 @@ textarea {
   height: 35px;
   justify-content: center;
   align-items: center;
+}
+
+
+@media all and (min-width: 480px){
+
+  body {
+    background-color: red;
+  }
+
+  .room-list {
+    flex-direction: row;
+  }
+
+
+
+
+
+
+
+
+
 }

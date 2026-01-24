@@ -117,7 +117,7 @@ export default function HomePage() {
                     <h2>{room.name}</h2>
                     <p>CAPACITY: {room.capacity}</p>
                     <p>USED: {room.usage}</p>
-                    <p>NOTE: {room.note}</p>
+                    <p className="note">NOTE: {room.note}</p>
                     {room.picture && <img src={room.picture} alt={room.name} style={{ width: "100px" }} />}
                 </div>
             ))}
