@@ -36,10 +36,6 @@ body {
   font-size: small;
 }
 
-.status-bar h4 {
-  font-size: medium;
-}
-
 .new-room-form {
   display: flex;
   position: fixed;
