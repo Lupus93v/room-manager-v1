@@ -1,6 +1,4 @@
 import React from "react"
-import { ref } from "firebase/database"
-import { database } from "../firebase"
 import { translations } from "../lang/translations";
 
 export default function Header({ language, totalCapacity, totalUsage, freeCapacity }) {
