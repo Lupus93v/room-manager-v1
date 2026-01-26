@@ -1,11 +1,11 @@
 body {
   margin: 0;
   padding: 1px;
-  background-color: rgb(146, 144, 144);
+  background: linear-gradient(rgb(105, 104, 104), rgb(172, 171, 171));
 }
 
 .header {
-  background-color: whitesmoke;
+  background: linear-gradient(to right,grey,whitesmoke);
   display: flex;
   position: fixed;
   justify-content: space-around;
@@ -15,8 +15,9 @@ body {
   width: 100%;
   height: 10%;
   z-index: 1000;
-  border-bottom: solid 2px black;
+  border-bottom: solid 4px black;
   border-radius: 10px;
+  box-shadow: 0px 3px 12px white;
 }
 
 .header h1 {
@@ -28,23 +29,15 @@ body {
 }
 
 .status-bar {
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   font-size: small;
 }
 
-.new-room-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: whitesmoke;
-  font-size: x-large;
-  background-color: rgb(65, 65, 65);
-  width: 30px;
-  height: 30px;
-  box-shadow: 0px 0px 10px black;
+.status-bar h4 {
+  font-size: medium;
 }
 
 .new-room-form {
@@ -190,11 +183,36 @@ textarea {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 35px;
-  justify-content: center;
-  align-items: center;
+  height: 50px;
+  justify-content: space-around;
+  align-items:center;
 }
 
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  color: whitesmoke;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px white;
+}
+
+.new-room-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+  font-size: x-large;
+  background-color: grey;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px white;
+}
 
 @media all and (min-width: 480px){
 

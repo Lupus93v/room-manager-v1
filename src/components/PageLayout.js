@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function PageLayout() {
+  const [language, setLanguage] = useState("en");
   const [totalCapacity, setTotalCapacity] = useState(0);
   const [totalUsage, setTotalUsage] = useState(0);
 
@@ -11,15 +12,20 @@ export default function PageLayout() {
 
   return (
     <div className="site-wrapper">
-      <Header 
-        totalCapacity={totalCapacity} 
-        totalUsage={totalUsage} 
-        freeCapacity={freeCapacity} 
+      <Header
+        language={language}
+        setLanguage={setLanguage}
+        totalCapacity={totalCapacity}
+        totalUsage={totalUsage}
+        freeCapacity={freeCapacity}
       />
       <main style={{ marginTop: "120px" }}>
-        <Outlet context={{ setTotalCapacity, setTotalUsage }} />
+        <Outlet context={{ setTotalCapacity, setTotalUsage, language }} />
       </main>
-      <Footer />
+      <Footer
+        language={language}
+        setLanguage={setLanguage}
+      />
     </div>
   );
 }

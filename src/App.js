@@ -4,6 +4,7 @@ import PageLayout from "../src/components/PageLayout";
 import HomePage from "./Pages/HomePage";
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <Routes>

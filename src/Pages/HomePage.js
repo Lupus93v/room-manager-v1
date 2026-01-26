@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { ref, remove, update, onValue } from "firebase/database";
 import { database } from "../firebase";
+import { translations } from "../lang/translations";
 
 const referenceInDB = ref(database, "rooms");
 
@@ -13,6 +14,8 @@ export default function HomePage() {
     const [editRoom, setEditRoom] = useState(null);
     const [editImage, setEditImage] = useState(null);
     const [editError, setEditError] = useState("");
+    const { language } = useOutletContext();
+    const t = translations[language];
 
     useEffect(() => {
         const unsubscribe = onValue(referenceInDB, (snapshot) => {
@@ -115,21 +118,21 @@ export default function HomePage() {
                 >
                     <img src={room.image} alt={room.name} />
                     <h2>{room.name}</h2>
-                    <p>CAPACITY: {room.capacity}</p>
-                    <p>USED: {room.usage}</p>
-                    <p className="note">NOTE: {room.note}</p>
+                    <p>{t.capacity} {room.capacity}</p>
+                    <p>{t.usedBeds} {room.usage}</p>
+                    <p className="note">{t.note} {room.note}</p>
                     {room.picture && <img src={room.picture} alt={room.name} style={{ width: "100px" }} />}
                 </div>
             ))}
 
             {popupVisible && selectedRoom && (
                 <div className="room-popup">
-                    <button onClick={() => setEditRoom(selectedRoom)}>CHANGE</button>
+                    <button onClick={() => setEditRoom(selectedRoom)}>{t.edit}</button>
                     <button
                         style={{ backgroundColor: "red", color: "white" }}
                         onClick={() => deleteRoom(selectedRoom.id)}
                     >
-                        DELETE
+                        {t.delete}
                     </button>
                     <button
                         onClick={() => {
@@ -138,7 +141,7 @@ export default function HomePage() {
                             setEditRoom(null);
                         }}
                     >
-                        CLOSE
+                        {t.close}
                     </button>
 
                     {editRoom && (
@@ -196,8 +199,8 @@ export default function HomePage() {
 
                             {editImage && <img src={editImage} width="100" alt={"soba"}/>}
 
-                            <button onClick={saveEdit}>SAVE</button>
-                            <button onClick={() => setEditRoom(null)}>CANCEL</button>
+                            <button onClick={saveEdit}>{t.save}</button>
+                            <button onClick={() => setEditRoom(null)}>{t.cancel}</button>
                         </div>
                     )}
                 </div>

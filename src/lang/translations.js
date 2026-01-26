@@ -1,0 +1,40 @@
+export const translations = {
+  en: {
+    title: "Room Manager",
+    capacity: "Capacity",
+    usedBeds: "Used beds",
+    freeBeds: "Free beds",
+    newRoom: "New Room",
+    addRoom: "Add Room",
+    delete: "Delete",
+    close: "Close",
+    edit: "Edit",
+    note: "Note",
+    save: "SAVE",
+    cancel: "CANCEL",
+    roomName: "Room name",
+    roomCapacity: "Room capacity",
+    roomUsage: "Room usage",
+    roomImage: "Room image",
+    roomNote: "Room note"
+  },
+  sr: {
+    title: "Управљач Соба",
+    capacity: "Капацитет",
+    usedBeds: "Заузето",
+    freeBeds: "Слободно",
+    newRoom: "Нова соба",
+    addRoom: "ДОДАЈ СОБУ",
+    delete: "ОБРИШИ",
+    close: "ЗАТВОРИ",
+    edit: "УРЕДИ",
+    note: "Напомена",
+    save: "Сачувај",
+    cancel: "Одустани",
+    roomName: "Име собе",
+    roomCapacity:"Капацитет собе",
+    roomUsage: "Искориштеност собе",
+    roomImage: "Слика собе",
+    roomNote: "Напомена"
+  }
+};
