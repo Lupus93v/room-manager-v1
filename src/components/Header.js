@@ -1,9 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { ref } from "firebase/database"
 import { database } from "../firebase"
 import { translations } from "../lang/translations";
-
-const referenceInDB = ref(database, "rooms");
 
 export default function Header({ language, totalCapacity, totalUsage, freeCapacity }) {
 
