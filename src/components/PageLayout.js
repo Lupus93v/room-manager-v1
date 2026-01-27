@@ -19,7 +19,7 @@ export default function PageLayout() {
         totalUsage={totalUsage}
         freeCapacity={freeCapacity}
       />
-      <main style={{ marginTop: "120px" }}>
+      <main style={{ marginTop: "80px" }}>
         <Outlet context={{ setTotalCapacity, setTotalUsage, language }} />
       </main>
       <Footer

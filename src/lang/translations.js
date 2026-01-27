@@ -12,11 +12,11 @@ export const translations = {
     note: "Note",
     save: "SAVE",
     cancel: "CANCEL",
-    roomName: "Room name",
-    roomCapacity: "Room capacity",
-    roomUsage: "Room usage",
+    roomName: "Room name:",
+    roomCapacity: "Room capacity:",
+    roomUsage: "Room usage:",
     roomImage: "Room image",
-    roomNote: "Room note"
+    roomNote: "Room note:"
   },
   sr: {
     title: "Управљач Соба",
@@ -28,13 +28,13 @@ export const translations = {
     delete: "ОБРИШИ",
     close: "ЗАТВОРИ",
     edit: "УРЕДИ",
-    note: "Напомена",
+    note: "Напомена:",
     save: "Сачувај",
     cancel: "Одустани",
-    roomName: "Име собе",
-    roomCapacity:"Капацитет собе",
-    roomUsage: "Искориштеност собе",
+    roomName: "Име собе:",
+    roomCapacity:"Капацитет собе:",
+    roomUsage: "Искориштеност собе:",
     roomImage: "Слика собе",
-    roomNote: "Напомена"
+    roomNote: "Напомена:"
   }
 };

@@ -57,29 +57,85 @@ export default function Footer({ language, setLanguage }) {
     return (
         <div className="footer">
             <button
-                className="lang-btn" onClick={() => setLanguage(language === "en" ? "sr" : "en")}
+                className="lang-btn"
+                onClick={() => setLanguage(language === "en" ? "sr" : "en")}
             >
                 {language === "en" ? "СР" : "EN"}
             </button>
-            <h5>Lupus Solutions</h5>
-            <button className="new-room-btn" onClick={NewRoom}>+</button>
-            {showForm && (<div className="new-room-form">
-                <p style={{ color: "white" }}>{t.newRoom}</p>
-                <input type="text" placeholder={t.roomName} value={roomName} onChange={(e) => setRoomName(e.target.value)} />
-                <input style={{ color: "white" }} type="file" placeholder={roomImage} accept="image/*" onChange={handleImageChange} />
-                {roomImage && (
-                    <img
-                        src={roomImage}
-                        alt="Preview"
-                        style={{ width: "100px", marginTop: "10px" }}
-                    />
-                )}
 
-                <input type="number" placeholder={t.roomCapacity} value={roomCapacity} onChange={(e) => setRoomCapacity(e.target.value)} />
-                <input type="number" disabled={!roomCapacity} placeholder={t.roomUsage} min={0} max={roomCapacity} value={roomUsage} onChange={handleUsageChange} />
-                <textarea placeholder={t.roomNote} value={roomNote} rows={4} onChange={(e) => setRoomNote(e.target.value)} />
-                <button className="add-room-btn" id="add-room" onClick={AddRoom}>{t.addRoom}</button>
-            </div>)}
+            <h5>Lupus Solutions</h5>
+
+            <button className="new-room-btn" onClick={NewRoom}>+</button>
+
+            {showForm && (
+                <div
+                    className="popup-overlay"
+                    onClick={() => setShowForm(false)}
+                >
+                    <div
+                        className="new-room-form"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="close-form-btn"
+                            onClick={() => setShowForm(false)}
+                        >
+                            ✕
+                        </button>
+
+                        <p style={{ color: "white" }}>{t.newRoom}</p>
+
+                        <input
+                            type="text"
+                            placeholder={t.roomName}
+                            value={roomName}
+                            onChange={(e) => setRoomName(e.target.value)}
+                        />
+
+                        <input
+                            style={{ color: "white" }}
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                        />
+
+                        {roomImage && (
+                            <img
+                                src={roomImage}
+                                alt="Preview"
+                                style={{ width: "100px", marginTop: "10px" }}
+                            />
+                        )}
+
+                        <input
+                            type="number"
+                            placeholder={t.roomCapacity}
+                            value={roomCapacity}
+                            onChange={(e) => setRoomCapacity(e.target.value)}
+                        />
+
+                        <input
+                            type="number"
+                            disabled={!roomCapacity}
+                            placeholder={t.roomUsage}
+                            min={0}
+                            max={roomCapacity}
+                            value={roomUsage}
+                            onChange={handleUsageChange}
+                        />
+
+                        <textarea
+                            placeholder={t.roomNote}
+                            value={roomNote}
+                            rows={4}
+                            onChange={(e) => setRoomNote(e.target.value)}
+                        />
+
+                        <button className="add-room-btn" onClick={AddRoom}>
+                            {t.addRoom}
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
-    )
-}
+    )}
