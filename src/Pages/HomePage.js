@@ -69,8 +69,6 @@ export default function HomePage() {
         }
     };
 
-
-
     function saveEdit() {
     const roomRef = ref(database, `rooms/${editRoom.id}`);
 

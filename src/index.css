@@ -238,13 +238,15 @@ textarea {
     background-color: red;
   }
 
-  .room-list {
+  .rooms-list {
     flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 
-
-
-
+  .room-div {
+    width: 40%;
+  }
 
 
 
