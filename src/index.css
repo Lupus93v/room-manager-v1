@@ -39,7 +39,7 @@ body {
 .new-room-form {
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   width: 80%;
   height: 400px;
@@ -66,7 +66,7 @@ body {
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 999;
 }
 
@@ -100,6 +100,7 @@ textarea {
   align-items: center;
   flex-direction: column;
   margin-bottom: 65px;
+  margin-top: 110px;
 }
 
 .room-div {
@@ -232,11 +233,9 @@ textarea {
   box-shadow: 0px 0px 5px white;
 }
 
-@media all and (min-width: 480px) {
+/* ______________________________________________________________________________________ */
 
-  body {
-    background-color: red;
-  }
+@media all and (min-width: 480px) {
 
   .rooms-list {
     flex-direction: row;
@@ -248,8 +247,37 @@ textarea {
     width: 40%;
   }
 
+}
 
+@media all and (min-width: 860px) {
 
+  .header h1 {
+    font-size: x-large;
+  }
 
+  .status-bar h4 {
+    font-size: large;
+  }
+
+  .room-div {
+    width: 30%;
+  }
+
+  .lang-btn:hover {
+    color: orange;
+    cursor: pointer;
+    box-shadow: 0px 0px 9px orange;
+  }
+
+  .new-room-btn:hover {
+    color: orange;
+    cursor: pointer;
+    box-shadow: 0px 0px 9px orange;
+  }
+
+  .room-div:hover {
+    box-shadow: 0px 0px 30px orange;
+    background: rgba(0, 0, 0, 0.1);
+  }
 
 }
